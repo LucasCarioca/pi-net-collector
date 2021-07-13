@@ -1,4 +1,4 @@
-module github.com/LucasCarioca/go-template
+module github.com/LucasCarioca/pi-net-collector
 
 go 1.16
 

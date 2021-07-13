@@ -3,8 +3,8 @@ package main
 import (
 	"flag"
 	"os"
-	"github.com/LucasCarioca/go-template/pkg/config"
-	"github.com/LucasCarioca/go-template/pkg/server"
+	"github.com/LucasCarioca/pi-net-collector/pkg/config"
+	"github.com/LucasCarioca/pi-net-collector/pkg/server"
 	"fmt"
 )
 
