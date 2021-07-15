@@ -2,10 +2,10 @@ package main
 
 import (
 	"flag"
-	"os"
+	"fmt"
 	"github.com/LucasCarioca/pi-net-collector/pkg/config"
 	"github.com/LucasCarioca/pi-net-collector/pkg/server"
-	"fmt"
+	"os"
 )
 
 func getEnv() string {

@@ -1,8 +1,8 @@
 package services
 
 import (
-	"github.com/LucasCarioca/pi-net-collector/pkg/models"
 	"github.com/LucasCarioca/pi-net-collector/pkg/config"
+	"github.com/LucasCarioca/pi-net-collector/pkg/models"
 	"gorm.io/gorm"
 )
 
@@ -18,16 +18,16 @@ func NewClimateService() ClimateService {
 
 func (s *ClimateService) CreateClimateRecord(temperature string, humidity string, node string, location string) models.Climate {
 	record := &models.Climate{
-		Temperature: temperature, 
-		Humidity: humidity,
-		Node: node,
-		Location: location,
+		Temperature: temperature,
+		Humidity:    humidity,
+		Node:        node,
+		Location:    location,
 	}
 	s.db.Create(record)
 	return *record
 }
 
-func (s *ClimateService)  GetClimateRecords() []models.Climate {
+func (s *ClimateService) GetClimateRecords() []models.Climate {
 	var climateRecords []models.Climate
 	s.db.Find(&climateRecords)
 	return climateRecords

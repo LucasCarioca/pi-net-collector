@@ -1,13 +1,13 @@
 package routes
 
 import (
-	"net/http"
 	"github.com/gin-gonic/gin"
+	"net/http"
 )
 
-type HealthRouter struct {}
+type HealthRouter struct{}
 
-func NewHealthRouter() HealthRouter  {
+func NewHealthRouter() HealthRouter {
 	return HealthRouter{}
 }
 

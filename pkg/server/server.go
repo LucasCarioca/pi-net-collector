@@ -1,12 +1,12 @@
 package server
 
 import (
-	"github.com/spf13/viper"
-	"github.com/gin-gonic/gin"
+	"fmt"
 	"github.com/LucasCarioca/pi-net-collector/pkg/routes"
 	"github.com/gin-contrib/cors"
 	"github.com/gin-contrib/static"
-	"fmt"
+	"github.com/gin-gonic/gin"
+	"github.com/spf13/viper"
 )
 
 func routesInit(app *gin.Engine) {

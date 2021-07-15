@@ -1,22 +1,21 @@
 package routes
 
 import (
-	"net/http"
-	"github.com/gin-gonic/gin"
 	"github.com/LucasCarioca/pi-net-collector/pkg/services"
+	"github.com/gin-gonic/gin"
+	"net/http"
 )
 
 type ClimateRequest struct {
-	Temperature string 	`json:"temperature" binding:"required"`
-	Humidity string		`json:"humidity" binding:"required"`
-	Node string			`json:"node" binding:"required"`
-	Location string		`json:"location" binding:"required"`
+	Temperature string `json:"temperature" binding:"required"`
+	Humidity    string `json:"humidity" binding:"required"`
+	Node        string `json:"node" binding:"required"`
+	Location    string `json:"location" binding:"required"`
 }
 
 type ClimateRouter struct {
 	climateService services.ClimateService
 }
-
 
 func NewClimateRouter() ClimateRouter {
 	return ClimateRouter{
@@ -26,11 +25,11 @@ func NewClimateRouter() ClimateRouter {
 
 func (r *ClimateRouter) create(context *gin.Context) {
 	var climateRequest ClimateRequest
-    context.BindJSON(&climateRequest)
+	context.BindJSON(&climateRequest)
 	record := r.climateService.CreateClimateRecord(
-		climateRequest.Temperature, 
-		climateRequest.Humidity, 
-		climateRequest.Node, 
+		climateRequest.Temperature,
+		climateRequest.Humidity,
+		climateRequest.Node,
 		climateRequest.Location)
 	context.JSON(http.StatusOK, record)
 }

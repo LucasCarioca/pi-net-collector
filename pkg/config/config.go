@@ -1,11 +1,11 @@
 package config
 
 import (
-	"github.com/spf13/viper"
 	"fmt"
+	"github.com/LucasCarioca/pi-net-collector/pkg/models"
+	"github.com/spf13/viper"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
-	"github.com/LucasCarioca/pi-net-collector/pkg/models"
 )
 
 var config *viper.Viper
@@ -14,7 +14,7 @@ var db *gorm.DB
 func Init(env string) {
 	config = viper.New()
 
-	config.SetConfigName(fmt.Sprintf("config.%s", env)) 
+	config.SetConfigName(fmt.Sprintf("config.%s", env))
 	config.SetConfigType("yaml")
 	config.AddConfigPath(".")
 
@@ -38,7 +38,7 @@ func Init(env string) {
 	models.Init(db)
 }
 
-func GetConfig() *viper.Viper { 
+func GetConfig() *viper.Viper {
 	return config
 }
 
