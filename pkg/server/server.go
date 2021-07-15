@@ -10,7 +10,10 @@ import (
 )
 
 func routesInit(app *gin.Engine) {
-	routes.HealthRouter(app)
+	climateRouter := routes.NewClimateRouter()
+	healthRouter := routes.NewHealthRouter()
+	healthRouter.LinkRoutes(app)
+	climateRouter.LinkRoutes(app)
 }
 
 func Init(config *viper.Viper) {

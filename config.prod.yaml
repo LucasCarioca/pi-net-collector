@@ -1,4 +1,11 @@
 server:
   static: ./public
   host: 0.0.0.0
-  port: 8001
+  port: 8080
+datasource: 
+  host: localhost
+  user: lucasdesouza
+  dbname: lucasdesouza
+  port: 5432
+  sslmode: disable
+  timeZone: US/Central
