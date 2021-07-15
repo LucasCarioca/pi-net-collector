@@ -5,7 +5,8 @@ server:
 datasource: 
   host: localhost
   user: lucasdesouza
-  dbname: lucasdesouza
+  password: password
+  dbname: local
   port: 5432
   sslmode: disable
   timeZone: US/Central

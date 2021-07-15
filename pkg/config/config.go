@@ -25,12 +25,15 @@ func Init(env string) {
 
 	host := config.GetString("datasource.host")
 	user := config.GetString("datasource.user")
+	password := config.GetString("datasource.password")
 	dbname := config.GetString("datasource.dbname")
 	port := config.GetString("datasource.port")
 	sslmode := config.GetString("datasource.sslmode")
 	timeZone := config.GetString("datasource.timeZone")
-
-	dsn := fmt.Sprintf("host=%s user=%s dbname=%s port=%s sslmode=%s TimeZone=%s", host, user, dbname, port, sslmode, timeZone)
+	fmt.Println(host)
+	fmt.Println(user)
+	fmt.Println(dbname)
+	dsn := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%s sslmode=%s TimeZone=%s", host, user, password, dbname, port, sslmode, timeZone)
 	db, err = gorm.Open(postgres.Open(dsn), &gorm.Config{})
 	models.Init(db)
 }
