@@ -19,6 +19,7 @@ func Init(env string) {
 	config.SetConfigType("yaml")
 	config.AddConfigPath(".")
 	config.SetEnvPrefix("secret")
+	config.BindEnv("datasource.password")
 
 	err := config.ReadInConfig()
 	if err != nil {
@@ -32,7 +33,6 @@ func Init(env string) {
 	port := config.GetString("datasource.port")
 	sslmode := config.GetString("datasource.sslmode")
 	timeZone := config.GetString("datasource.timeZone")
-
 	dsn := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%s sslmode=%s TimeZone=%s", host, user, password, dbname, port, sslmode, timeZone)
 	db, err = gorm.Open(postgres.Open(dsn), &gorm.Config{})
 	if err != nil {

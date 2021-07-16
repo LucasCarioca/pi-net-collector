@@ -1,0 +1,12 @@
+server:
+  static: ./public
+  host: 0.0.0.0
+  port: 8080
+datasource: 
+  host: localhost
+  user: postgres
+  password: SECRET_PGPASSWORD
+  dbname: postgres
+  port: 5432
+  sslmode: disable
+  timeZone: US/Central
