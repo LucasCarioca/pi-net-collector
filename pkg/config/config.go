@@ -6,6 +6,7 @@ import (
 	"github.com/spf13/viper"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
+	"log"
 )
 
 var config *viper.Viper
@@ -17,6 +18,7 @@ func Init(env string) {
 	config.SetConfigName(fmt.Sprintf("config.%s", env))
 	config.SetConfigType("yaml")
 	config.AddConfigPath(".")
+	config.SetEnvPrefix("secret")
 
 	err := config.ReadInConfig()
 	if err != nil {
@@ -30,11 +32,12 @@ func Init(env string) {
 	port := config.GetString("datasource.port")
 	sslmode := config.GetString("datasource.sslmode")
 	timeZone := config.GetString("datasource.timeZone")
-	fmt.Println(host)
-	fmt.Println(user)
-	fmt.Println(dbname)
+
 	dsn := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%s sslmode=%s TimeZone=%s", host, user, password, dbname, port, sslmode, timeZone)
 	db, err = gorm.Open(postgres.Open(dsn), &gorm.Config{})
+	if err != nil {
+		log.Fatalln(err)
+	}
 	models.Init(db)
 }
 

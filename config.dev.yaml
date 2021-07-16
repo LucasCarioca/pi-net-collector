@@ -5,8 +5,8 @@ server:
 datasource: 
   host: localhost
   user: local
-  password: passwordnot
-  dbname: local
+  password: password
+  dbname: postgres
   port: 5432
   sslmode: disable
   timeZone: US/Central
