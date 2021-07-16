@@ -5,7 +5,7 @@ server:
 datasource: 
   host: localhost
   user: postgres
-  password: SECRET_PGPASSWORD
+  password: ${PGPASSWORD}
   dbname: postgres
   port: 5432
   sslmode: disable
